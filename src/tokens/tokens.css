@@ -119,12 +119,12 @@
   --color-text-mute: #999999;
   --color-text-faint: #666666;
 
-  /* Brand */
-  --color-brand: #5f2bce;
-  --color-brand-hover: #6e36e6;
-  --color-brand-soft: #2a225f;
-  --color-brand-tint: #251f40;
-  --color-brand-ink: #b6a6f3;
+  /* Brand — blue in dark mode (brighter for dark backgrounds, not purple) */
+  --color-brand: #3b82f6;
+  --color-brand-hover: #60a5fa;
+  --color-brand-soft: #233876;
+  --color-brand-tint: #1a2744;
+  --color-brand-ink: #93c5fd;
   --color-on-brand: #ffffff;
 
   /* State */
@@ -159,11 +159,11 @@
     --color-text-mute: #999999;
     --color-text-faint: #666666;
 
-    --color-brand: #5f2bce;
-    --color-brand-hover: #6e36e6;
-    --color-brand-soft: #2a225f;
-    --color-brand-tint: #251f40;
-    --color-brand-ink: #b6a6f3;
+    --color-brand: #3b82f6;
+    --color-brand-hover: #60a5fa;
+    --color-brand-soft: #233876;
+    --color-brand-tint: #1a2744;
+    --color-brand-ink: #93c5fd;
     --color-on-brand: #ffffff;
 
     --color-success: #03ac5c;
