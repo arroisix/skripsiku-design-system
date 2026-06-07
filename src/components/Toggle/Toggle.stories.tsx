@@ -7,6 +7,7 @@ const meta = {
   component: Toggle,
   tags: ['ai-generated'],
   args: { 'aria-label': 'Bookmark', icon: <IconStar /> },
+  argTypes: { icon: { control: false } },
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Toggle>;
 

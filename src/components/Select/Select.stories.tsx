@@ -6,6 +6,7 @@ const meta = {
   component: Select,
   tags: ['ai-generated'],
   args: { children: 'Terakhir dibuka', leadingIcon: <IconSwapVertical /> },
+  argTypes: { leadingIcon: { control: false } },
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Select>;
 

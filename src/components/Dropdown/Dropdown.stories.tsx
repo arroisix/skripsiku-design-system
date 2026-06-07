@@ -17,6 +17,10 @@ const meta = {
     placeholder: 'Pilih pendekatan…',
     options: OPTIONS,
   },
+  argTypes: {
+    options: { control: false },
+    error: { control: 'text' },
+  },
   parameters: { layout: 'centered' },
   decorators: [
     (Story) => (

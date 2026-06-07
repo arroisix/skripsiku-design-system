@@ -13,6 +13,7 @@ const meta = {
     backLabel: 'Kembali ke Simulasi Sidang',
     onBack: fn(),
   },
+  argTypes: { actions: { control: false } },
   parameters: { layout: 'padded' },
   decorators: [
     (Story) => (

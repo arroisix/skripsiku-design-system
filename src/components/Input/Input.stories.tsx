@@ -11,6 +11,10 @@ const meta = {
   args: {
     placeholder: 'mis. indra@kampus.ac.id',
   },
+  argTypes: {
+    icon: { control: false },
+    iconPosition: { control: 'inline-radio', options: ['leading', 'trailing'] },
+  },
   parameters: { layout: 'centered' },
   decorators: [
     (Story) => (

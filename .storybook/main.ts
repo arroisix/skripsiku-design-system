@@ -12,6 +12,16 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
     "@storybook/addon-mcp"
   ],
-  "framework": "@storybook/react-vite"
+  "framework": "@storybook/react-vite",
+  // Extract prop types + JSDoc descriptions into the Controls/Docs tables.
+  "typescript": {
+    "reactDocgen": "react-docgen-typescript",
+    "reactDocgenTypescriptOptions": {
+      "shouldExtractLiteralValuesFromEnum": true,
+      "shouldRemoveUndefinedFromOptional": true,
+      "propFilter": (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
+    }
+  }
 };
 export default config;
