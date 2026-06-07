@@ -104,7 +104,7 @@ export const space = {
  * Typography — 15 styles. Display = Fraunces serif, rest = system sans.
  * -------------------------------------------------------------------------- */
 export const fontFamily = {
-  sans: "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro', 'Segoe UI', system-ui, sans-serif",
+  sans: "'Open Runde', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif",
   display: "'Fraunces', Georgia, 'Times New Roman', serif",
 } as const;
 
