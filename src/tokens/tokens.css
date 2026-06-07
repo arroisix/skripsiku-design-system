@@ -93,6 +93,12 @@
   --blur-progressive: 24px;
 
   color-scheme: light;
+
+  /* Match modern web rendering (Framer/Vercel-style): lighter, crisper text.
+   * Without this, macOS subpixel smoothing makes Open Runde look heavier. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Dark theme overrides — only the tokens that change between modes.
