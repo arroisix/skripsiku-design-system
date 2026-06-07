@@ -1,0 +1,73 @@
+/* Textarea — 1:1 from Figma DS (node 140:1105).
+ * NOTE: Figma gives the box a brand-coloured border and page background in every
+ * non-error state (unlike Input's neutral border) — kept faithful here. */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1); /* 4px */
+  width: 100%;
+}
+.root:has(.field:disabled) {
+  opacity: 0.6;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/sm */
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-text-soft);
+}
+
+.field {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 140px;
+  padding: var(--space-3); /* 12px */
+  background: var(--color-bg);
+  border: 1px solid var(--color-brand);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  outline: none;
+
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+.field::placeholder {
+  color: var(--color-text-mute);
+}
+.field:focus-visible {
+  border-width: 1.5px;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 18%, transparent);
+}
+.field[data-error='true'] {
+  border-width: 1.5px;
+  border-color: var(--color-danger);
+}
+.field[data-error='true']:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-danger) 18%, transparent);
+}
+.field:disabled {
+  background: var(--color-surface-2);
+  cursor: not-allowed;
+}
+
+.message {
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/sm */
+  font-size: 13px;
+  line-height: 16px;
+}
+.helper {
+  color: var(--color-text-mute);
+}
+.error {
+  color: var(--color-danger);
+}

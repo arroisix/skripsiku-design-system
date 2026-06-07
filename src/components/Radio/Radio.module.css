@@ -1,0 +1,85 @@
+/* Radio — 1:1 from Figma DS (node 3:1356). */
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2); /* 8px */
+  cursor: pointer;
+}
+.root:has(.input:disabled) {
+  cursor: not-allowed;
+}
+
+.control {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.box {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-on-brand);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.input:checked + .box {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  border-width: 1px;
+}
+.input:checked + .box .dot {
+  opacity: 1;
+}
+.input:focus-visible + .box {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 18%, transparent);
+}
+.input:disabled + .box {
+  opacity: 0.5;
+}
+.root:has(.input:disabled) .labelCol {
+  opacity: 0.55;
+}
+
+.labelCol {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/md */
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-text);
+}
+.desc {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  color: var(--color-text-mute);
+}
