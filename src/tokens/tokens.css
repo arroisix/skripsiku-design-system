@@ -1,0 +1,173 @@
+/* =============================================================================
+ * Design Tokens — SKRIPSIKU DESIGN SYSTEM · Foundation
+ * Generated from Figma (file VlmpRAheWLWqFUv9wT9HLg).
+ * Source of truth lives in Figma; this file mirrors it for code.
+ *
+ * Color tokens are theme-aware: light values in :root, dark in [data-theme="dark"]
+ * (and auto via prefers-color-scheme when no explicit theme is set).
+ * Canvas, radius, spacing, blur and typography are mode-agnostic.
+ * ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&display=swap');
+
+:root {
+  /* ---- Color · Surfaces (light) ---- */
+  --color-bg: #fafaf8;
+  --color-surface: #ffffff;
+  --color-surface-2: #f5f5f4;
+  --color-surface-3: #ebebe9;
+  --color-surface-4: #e5e5e2;
+  --color-border: #e7e5e4;
+  --color-border-strong: #d6d3d1;
+
+  /* ---- Color · Canvas (fixed dark — identical in both modes) ---- */
+  --color-canvas: #18181b;
+  --color-canvas-raised: #27272a;
+  --color-canvas-sunken: #09090b;
+  --color-scrim: rgba(9, 9, 11, 0.64);
+
+  /* ---- Color · Text (light) ---- */
+  --color-text: #18181b;
+  --color-text-soft: #3f3f46;
+  --color-text-mute: #71717a;
+  --color-text-faint: #a1a1aa;
+
+  /* ---- Color · Brand (light) ---- */
+  --color-brand: #2563eb;
+  --color-brand-hover: #1d4ed8;
+  --color-brand-soft: #dbeafe;
+  --color-brand-tint: #eff6ff;
+  --color-brand-ink: #1d4ed8;
+  --color-on-brand: #ffffff;
+
+  /* ---- Color · State (light) ---- */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #0284c7;
+
+  /* ---- Radius ---- */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 999px;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---- Typography · families ---- */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro',
+    'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+
+  /* ---- Shadow / Elevation (light) ---- */
+  --shadow-1: 0px 1px 1px 0px rgba(0, 0, 0, 0.02),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.04);
+  --shadow-2: 0px 1px 3px 0px rgba(0, 0, 0, 0.04),
+    0px 4px 12px 0px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0px 4px 8px 0px rgba(0, 0, 0, 0.04),
+    0px 12px 32px 0px rgba(0, 0, 0, 0.08);
+
+  /* ---- Blur ---- */
+  --blur-sm: 4px;
+  --blur-md: 12px;
+  --blur-lg: 24px;
+  --blur-backdrop: 20px;
+  --blur-progressive: 24px;
+
+  color-scheme: light;
+}
+
+/* Dark theme overrides — only the tokens that change between modes.
+ * Canvas, radius, spacing, blur, typography are intentionally NOT repeated. */
+[data-theme='dark'] {
+  /* Surfaces */
+  --color-bg: #101010;
+  --color-surface: #191920;
+  --color-surface-2: #20222e;
+  --color-surface-3: #282b3c;
+  --color-surface-4: #4b4e5f;
+  --color-border: #2b2d3a;
+  --color-border-strong: #3a3d4d;
+
+  /* Text */
+  --color-text: #ffffff;
+  --color-text-soft: #dedede;
+  --color-text-mute: #999999;
+  --color-text-faint: #666666;
+
+  /* Brand */
+  --color-brand: #5f2bce;
+  --color-brand-hover: #6e36e6;
+  --color-brand-soft: #2a225f;
+  --color-brand-tint: #251f40;
+  --color-brand-ink: #b6a6f3;
+  --color-on-brand: #ffffff;
+
+  /* State */
+  --color-success: #03ac5c;
+  --color-warning: #f2c04c;
+  --color-danger: #ff3b30;
+  --color-info: #3b82f6;
+
+  /* Shadow / Elevation (dark) */
+  --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0px 2px 4px 0px rgba(0, 0, 0, 0.3),
+    0px 8px 20px 0px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0px 20px 50px 0px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
+}
+
+/* Respect OS preference when the app hasn't set an explicit theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #101010;
+    --color-surface: #191920;
+    --color-surface-2: #20222e;
+    --color-surface-3: #282b3c;
+    --color-surface-4: #4b4e5f;
+    --color-border: #2b2d3a;
+    --color-border-strong: #3a3d4d;
+
+    --color-text: #ffffff;
+    --color-text-soft: #dedede;
+    --color-text-mute: #999999;
+    --color-text-faint: #666666;
+
+    --color-brand: #5f2bce;
+    --color-brand-hover: #6e36e6;
+    --color-brand-soft: #2a225f;
+    --color-brand-tint: #251f40;
+    --color-brand-ink: #b6a6f3;
+    --color-on-brand: #ffffff;
+
+    --color-success: #03ac5c;
+    --color-warning: #f2c04c;
+    --color-danger: #ff3b30;
+    --color-info: #3b82f6;
+
+    --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0px 2px 4px 0px rgba(0, 0, 0, 0.3),
+      0px 8px 20px 0px rgba(0, 0, 0, 0.4);
+    --shadow-3: 0px 20px 50px 0px rgba(0, 0, 0, 0.5);
+
+    color-scheme: dark;
+  }
+}

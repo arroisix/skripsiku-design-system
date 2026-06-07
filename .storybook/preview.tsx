@@ -1,6 +1,38 @@
-import type { Preview } from '@storybook/react-vite'
+import type { Preview, Decorator } from '@storybook/react-vite'
+import { useEffect } from 'react'
+// Load the design tokens (CSS custom properties + typography classes + fonts).
+import '../src/tokens/index.ts'
+
+/** Sets `data-theme` on <html> so the token CSS resolves light/dark, and paints
+ *  the preview background from the themed `--color-bg`. */
+const withTheme: Decorator = (Story, context) => {
+  const theme = context.globals.theme ?? 'light'
+  useEffect(() => {
+    const root = document.documentElement
+    root.setAttribute('data-theme', theme)
+    document.body.style.background = 'var(--color-bg)'
+    document.body.style.color = 'var(--color-text)'
+  }, [theme])
+  return <Story />
+}
 
 const preview: Preview = {
+  decorators: [withTheme],
+  globalTypes: {
+    theme: {
+      description: 'Foundation theme',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', title: 'Light', icon: 'sun' },
+          { value: 'dark', title: 'Dark', icon: 'moon' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
   parameters: {
     controls: {
       matchers: {
