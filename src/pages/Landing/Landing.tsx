@@ -47,23 +47,12 @@ function Hero() {
   );
 }
 
-/**
- * Skripsiku.ai marketing landing page.
- * Nav + Hero are built; remaining sections are stubbed for incremental build.
- */
+/** Skripsiku.ai landing — nav + hero (for evaluating hero type). */
 export function Landing() {
   return (
     <div className={styles.page}>
       <Nav />
       <Hero />
-      {[
-        'logos', 'sync', 'usp-alur', 'usp-memandu', 'usp-versi', 'usp-sidang',
-        'fitur-grid', 'quote', 'harga', 'tips', 'community', 'final', 'footer',
-      ].map((id) => (
-        <section key={id} id={id} className={`${styles.container} ${styles.todo}`}>
-          section: {id} — coming next
-        </section>
-      ))}
     </div>
   );
 }

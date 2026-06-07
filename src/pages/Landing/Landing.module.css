@@ -129,12 +129,3 @@
   color: var(--color-text-faint);
   font-size: 13px;
 }
-
-/* ---------- Placeholder for not-yet-built sections ---------- */
-.todo {
-  padding: var(--space-16) 0;
-  text-align: center;
-  border-top: 1px dashed var(--color-border);
-  color: var(--color-text-faint);
-  font-size: 13px;
-}
