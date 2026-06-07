@@ -49,7 +49,48 @@
   color: var(--color-text-mute);
 }
 
-/* indent markers (CSS triangles) */
+/* indent markers — a grabbable handle wrapping a CSS triangle */
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  touch-action: none;
+  z-index: 1;
+}
+.handle:focus-visible {
+  outline: none;
+}
+.handle:focus-visible .tri,
+.handle:hover .tri {
+  border-top-color: var(--color-brand);
+  border-bottom-color: var(--color-brand);
+}
+
+.tri {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  transition: border-color 0.12s ease;
+}
+.triTop {
+  top: 1px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--color-text-mute);
+}
+.triBottom {
+  bottom: 1px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 6px solid var(--color-text-mute);
+}
+
+/* static (non-interactive) variant keeps simple triangles */
 .marker {
   position: absolute;
   width: 0;

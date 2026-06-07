@@ -87,7 +87,7 @@ export { CitationChip } from './components/CitationChip';
 export type { CitationChipProps } from './components/CitationChip';
 
 export { Ruler } from './components/Ruler';
-export type { RulerProps, RulerState } from './components/Ruler';
+export type { RulerProps, RulerState, RulerIndents } from './components/Ruler';
 
 export { Reveal } from './components/Reveal';
 export type { RevealProps } from './components/Reveal';

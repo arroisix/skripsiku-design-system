@@ -1,46 +1,143 @@
-import type { HTMLAttributes } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type HTMLAttributes,
+  type KeyboardEvent,
+  type PointerEvent,
+} from 'react';
 import styles from './Ruler.module.css';
 
 export type RulerState = 'default' | 'first-line-indent' | 'hanging-indent';
 
-export interface RulerProps extends HTMLAttributes<HTMLDivElement> {
-  /** Indent preview. @default 'default' */
+/** Indent values in cm: first-line & left measured from the left margin, right from the right margin. */
+export interface RulerIndents {
+  firstLine: number;
+  left: number;
+  right: number;
+}
+
+export interface RulerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  /** Initial indent preset. @default 'default' */
   state?: RulerState;
+  /** Fired while dragging a marker, with indents in cm. */
+  onChange?: (indents: RulerIndents) => void;
 }
 
 const cx = (...c: Array<string | false | undefined>) => c.filter(Boolean).join(' ');
 
-const ZONE_START = 220; // text zone left edge (px)
-const ZONE_END = 740; // text zone right edge (px)
-const CM = 37.5; // px per cm
-const INDENT = 2 * CM; // a 2cm indent step
+const ZONE_START = 220;
+const ZONE_END = 740;
+const CM = 37.5;
+const INDENT = 2 * CM;
+const MIN = 140;
+const MAX = 820;
+const STEP = CM / 4; // keyboard nudge (0.25cm)
 
-// cm 0..13 ticks; even cm get a taller tick + a number (2,4,6,…12)
+const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
+const round1 = (n: number) => Math.round(n * 10) / 10;
+
 const TICKS = Array.from({ length: 14 }, (_, cm) => ({
   cm,
   x: ZONE_START + cm * CM,
   major: cm % 2 === 0,
 }));
 
+type Marker = 'firstLine' | 'left' | 'right';
+
+function preset(state: RulerState) {
+  return {
+    firstLine: state === 'first-line-indent' ? ZONE_START + INDENT : ZONE_START,
+    left: state === 'hanging-indent' ? ZONE_START + INDENT : ZONE_START,
+    right: ZONE_END,
+  };
+}
+
 /**
- * Horizontal document ruler showing page margins, tick scale, and paragraph
- * indent markers. Mirrors the Figma DS Ruler (state).
+ * Interactive document ruler — drag the indent markers (first-line, left, right)
+ * to set paragraph indents. Reports values in cm via `onChange`. Keyboard
+ * accessible (focus a marker, arrow keys to nudge). Mirrors the Figma DS Ruler.
  */
-export function Ruler({ state = 'default', className, ...rest }: RulerProps) {
-  const firstLineX =
-    state === 'first-line-indent' ? ZONE_START + INDENT : ZONE_START;
-  const leftIndentX =
-    state === 'hanging-indent' ? ZONE_START + INDENT : ZONE_START;
+export function Ruler({ state = 'default', onChange, className, ...rest }: RulerProps) {
+  const rulerRef = useRef<HTMLDivElement>(null);
+  const drag = useRef<Marker | null>(null);
+  const [pos, setPos] = useState(() => preset(state));
+
+  useEffect(() => setPos(preset(state)), [state]);
+
+  const toCm = (p: typeof pos): RulerIndents => ({
+    firstLine: round1((p.firstLine - ZONE_START) / CM),
+    left: round1((p.left - ZONE_START) / CM),
+    right: round1((ZONE_END - p.right) / CM),
+  });
+
+  const apply = (which: Marker, x: number) =>
+    setPos((prev) => {
+      const next = { ...prev };
+      if (which === 'right') next.right = clamp(x, Math.max(prev.firstLine, prev.left), MAX);
+      else next[which] = clamp(x, MIN, prev.right);
+      onChange?.(toCm(next));
+      return next;
+    });
+
+  const xFromClient = (clientX: number) => {
+    const rect = rulerRef.current!.getBoundingClientRect();
+    const scale = rect.width / 960; // map rendered px → 960 coordinate space
+    return (clientX - rect.left) / (scale || 1);
+  };
+
+  const onPointerDown = (which: Marker) => (e: PointerEvent<HTMLSpanElement>) => {
+    e.preventDefault();
+    e.currentTarget.setPointerCapture(e.pointerId);
+    drag.current = which;
+  };
+  const onPointerMove = (e: PointerEvent<HTMLSpanElement>) => {
+    if (drag.current) apply(drag.current, xFromClient(e.clientX));
+  };
+  const onPointerUp = (e: PointerEvent<HTMLSpanElement>) => {
+    drag.current = null;
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      /* noop */
+    }
+  };
+  const onKeyDown = (which: Marker) => (e: KeyboardEvent<HTMLSpanElement>) => {
+    const dir = e.key === 'ArrowLeft' ? -1 : e.key === 'ArrowRight' ? 1 : 0;
+    if (!dir) return;
+    e.preventDefault();
+    apply(which, pos[which] + dir * STEP);
+  };
+
+  const handle = (which: Marker, kind: 'top' | 'bottom', label: string) => {
+    const valueCm =
+      which === 'right' ? round1((ZONE_END - pos[which]) / CM) : round1((pos[which] - ZONE_START) / CM);
+    return (
+      <span
+        className={styles.handle}
+        style={{ left: pos[which] }}
+        role="slider"
+        tabIndex={0}
+        aria-label={label}
+        aria-valuenow={valueCm}
+        aria-valuemin={0}
+        aria-valuetext={`${valueCm} cm`}
+        onPointerDown={onPointerDown(which)}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onKeyDown={onKeyDown(which)}
+      >
+        <span className={cx(styles.tri, kind === 'top' ? styles.triTop : styles.triBottom)} />
+      </span>
+    );
+  };
 
   return (
-    <div className={cx(styles.ruler, className)} role="presentation" {...rest}>
-      {/* margin zones (outside the writing column) */}
+    <div className={cx(styles.ruler, className)} ref={rulerRef} {...rest}>
       <div className={styles.marginZone} style={{ left: 140, width: ZONE_START - 140 }} />
       <div className={styles.marginZone} style={{ left: ZONE_END, width: 80 }} />
-      {/* writing column */}
       <div className={styles.textZone} style={{ left: ZONE_START, width: ZONE_END - ZONE_START }} />
 
-      {/* ticks + numbers */}
       {TICKS.map(({ cm, x, major }) => (
         <span key={cm}>
           <span
@@ -55,10 +152,9 @@ export function Ruler({ state = 'default', className, ...rest }: RulerProps) {
         </span>
       ))}
 
-      {/* indent markers */}
-      <span className={cx(styles.marker, styles.markerTop)} style={{ left: firstLineX }} />
-      <span className={cx(styles.marker, styles.markerBottom)} style={{ left: leftIndentX }} />
-      <span className={cx(styles.marker, styles.markerBottom)} style={{ left: ZONE_END }} />
+      {handle('firstLine', 'top', 'Indentasi baris pertama')}
+      {handle('left', 'bottom', 'Indentasi kiri')}
+      {handle('right', 'bottom', 'Indentasi kanan')}
     </div>
   );
 }
