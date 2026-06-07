@@ -1,0 +1,155 @@
+/* Button — generated 1:1 from Figma DS (node 3:461).
+ * Figma "state" (default/hover/pressed/disabled) is mapped to real CSS
+ * interaction states. Geometry & colors reference Foundation tokens. */
+
+.button {
+  /* size-driven custom props (set by .sm / .md / .lg) */
+  --btn-pad-y: var(--space-3);
+  --btn-pad-x: var(--space-5);
+  --btn-radius: var(--radius-lg);
+  --btn-font-size: 15px;
+  --btn-line: 22px;
+  --btn-gap: var(--space-2);
+  --btn-icon: 20px;
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border: 1px solid transparent;
+  border-radius: var(--btn-radius);
+
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--btn-font-size);
+  line-height: var(--btn-line);
+  white-space: nowrap;
+  text-decoration: none;
+
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease, color 0.15s ease;
+}
+
+/* ---- Sizes ---- */
+.sm {
+  --btn-pad-y: var(--space-2);
+  --btn-pad-x: var(--space-4);
+  --btn-radius: var(--radius-md);
+  --btn-font-size: 13px;
+  --btn-line: 18px;
+  --btn-gap: var(--space-1);
+  --btn-icon: 16px;
+}
+.md {
+  --btn-pad-y: var(--space-3);
+  --btn-pad-x: var(--space-5);
+  --btn-radius: var(--radius-lg);
+  --btn-font-size: 15px;
+  --btn-line: 22px;
+  --btn-gap: var(--space-2);
+  --btn-icon: 20px;
+}
+.lg {
+  --btn-pad-y: var(--space-4);
+  --btn-pad-x: var(--space-6);
+  --btn-radius: var(--radius-lg);
+  --btn-font-size: 15px;
+  --btn-line: 22px;
+  --btn-gap: var(--space-2);
+  --btn-icon: 24px;
+}
+
+/* ---- Variants (placed after sizes so their padding override wins) ---- */
+.primary {
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  box-shadow: var(--shadow-1);
+}
+.primary:hover:not(:disabled) {
+  background: var(--color-brand-hover);
+}
+.primary:active:not(:disabled) {
+  background: var(--color-brand-hover);
+}
+
+.secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-1);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--color-surface-2);
+}
+.secondary:active:not(:disabled) {
+  background: var(--color-surface-3);
+  box-shadow: none;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--color-brand-tint);
+}
+.ghost:active:not(:disabled) {
+  background: var(--color-brand-soft);
+}
+
+/* text: symmetric padding (= vertical), no background in any state per Figma */
+.text {
+  --btn-pad-x: var(--btn-pad-y);
+  background: transparent;
+  color: var(--color-brand);
+}
+
+.danger {
+  background: var(--color-danger);
+  color: var(--color-on-brand);
+  box-shadow: var(--shadow-1);
+}
+.danger:hover:not(:disabled) {
+  background: var(--color-danger-hover);
+}
+.danger:active:not(:disabled) {
+  background: var(--color-danger-hover);
+}
+
+/* ---- Icon-only: square, symmetric padding ---- */
+.iconOnly {
+  --btn-pad-x: var(--btn-pad-y);
+}
+
+/* ---- Disabled (applies to all variants) ---- */
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---- Focus ring (a11y addition — not specified in Figma) ---- */
+.button:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* ---- Icon slot ---- */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--btn-icon);
+  height: var(--btn-icon);
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+}

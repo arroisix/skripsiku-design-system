@@ -31,6 +31,7 @@ export const color = {
     success: '#16a34a',
     warning: '#d97706',
     danger: '#dc2626',
+    'danger-hover': '#b91c1c',
     info: '#0284c7',
   },
   dark: {
@@ -54,6 +55,7 @@ export const color = {
     success: '#03ac5c',
     warning: '#f2c04c',
     danger: '#ff3b30',
+    'danger-hover': '#e02d22',
     info: '#3b82f6',
   },
   /** Canvas tokens are fixed dark in both themes. */

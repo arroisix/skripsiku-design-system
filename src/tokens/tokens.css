@@ -44,6 +44,7 @@
   --color-success: #16a34a;
   --color-warning: #d97706;
   --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
   --color-info: #0284c7;
 
   /* ---- Radius ---- */
@@ -124,6 +125,7 @@
   --color-success: #03ac5c;
   --color-warning: #f2c04c;
   --color-danger: #ff3b30;
+  --color-danger-hover: #e02d22; /* inferred (darker) — not yet defined in Figma dark mode */
   --color-info: #3b82f6;
 
   /* Shadow / Elevation (dark) */
@@ -161,6 +163,7 @@
     --color-success: #03ac5c;
     --color-warning: #f2c04c;
     --color-danger: #ff3b30;
+    --color-danger-hover: #e02d22;
     --color-info: #3b82f6;
 
     --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.3);
