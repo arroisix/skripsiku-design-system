@@ -1,6 +1,6 @@
 /* Textarea — 1:1 from Figma DS (node 140:1105).
- * NOTE: Figma gives the box a brand-coloured border and page background in every
- * non-error state (unlike Input's neutral border) — kept faithful here. */
+ * Neutral border by default → brand on focus → danger on error (matches Input).
+ * Background uses the page token per Figma. */
 
 .root {
   display: flex;
@@ -26,7 +26,7 @@
   min-height: 140px;
   padding: var(--space-3); /* 12px */
   background: var(--color-bg);
-  border: 1px solid var(--color-brand);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   resize: vertical;
   outline: none;
