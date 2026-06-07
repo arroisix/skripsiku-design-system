@@ -1,23 +1,42 @@
 {
-  "name": "storybook",
+  "name": "@skripsiku/ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Skripsiku design system — React components + tokens, generated from Figma. Storybook is the living documentation.",
+  "license": "MIT",
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles": "./dist/skripsiku-ui.css"
+  },
+  "sideEffects": ["**/*.css", "**/styles.ts", "**/styles.js"],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "vite build --config vite.lib.config.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "dependencies": {
-    "@fontsource/open-runde": "^5.2.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "@fontsource/open-runde": "^5.2.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.4.2",
     "@storybook/addon-docs": "^10.4.2",
@@ -39,6 +58,7 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12",
+    "vite-plugin-dts": "^5.0.2",
     "vitest": "^4.1.8"
   }
 }

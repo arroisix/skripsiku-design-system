@@ -1,7 +1,11 @@
 import type { Preview, Decorator } from '@storybook/react-vite'
 import { useEffect } from 'react'
-// Load the design tokens (CSS custom properties + typography classes + fonts).
-import '../src/tokens/index.ts'
+// Sans webfont + design system stylesheet (token CSS vars + typography classes).
+import '@fontsource/open-runde/400.css'
+import '@fontsource/open-runde/500.css'
+import '@fontsource/open-runde/600.css'
+import '@fontsource/open-runde/700.css'
+import '../src/styles'
 
 /** Sets `data-theme` on <html> so the token CSS resolves light/dark, and paints
  *  the preview background from the themed `--color-bg`. */
