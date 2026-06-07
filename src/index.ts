@@ -69,6 +69,26 @@ export type { OtpCellProps, OtpCellState } from './components/OtpCell';
 export { Select } from './components/Select';
 export type { SelectProps } from './components/Select';
 
+export {
+  EditorStatus,
+  EditorStatusDivider,
+  EditorStatusSegment,
+} from './components/EditorStatus';
+export type {
+  EditorStatusProps,
+  EditorStatusSegmentProps,
+  StatusTone,
+} from './components/EditorStatus';
+
+export { AiAvatar } from './components/AiAvatar';
+export type { AiAvatarProps, AiAvatarTone } from './components/AiAvatar';
+
+export { CitationChip } from './components/CitationChip';
+export type { CitationChipProps } from './components/CitationChip';
+
+export { Ruler } from './components/Ruler';
+export type { RulerProps, RulerState } from './components/Ruler';
+
 export { Reveal } from './components/Reveal';
 export type { RevealProps } from './components/Reveal';
 

@@ -1,0 +1,29 @@
+/* CitationChip — 1:1 from Figma DS (node 462:646). */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2); /* 4 / 8 */
+  border: none;
+  background: var(--color-brand-tint);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/xs */
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--color-brand);
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+button.chip {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+button.chip:hover {
+  background: var(--color-brand-soft);
+}
+button.chip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 18%, transparent);
+}

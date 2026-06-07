@@ -1,0 +1,35 @@
+/* EditorStatus — 1:1 from Figma DS (node 405:614). Inline editor status pill. */
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3); /* 12 */
+  padding: var(--space-2) var(--space-3); /* 8 / 12 */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 400; /* body/xs */
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-soft);
+}
+
+.divider {
+  width: 1px;
+  height: 14px;
+  background: var(--color-border);
+  flex: none;
+}
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1); /* 4 */
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  background: var(--color-success);
+}
