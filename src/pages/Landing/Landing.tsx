@@ -1,4 +1,5 @@
 import { Button } from '../../components/Button';
+import { Reveal } from '../../components/Reveal';
 import styles from './Landing.module.css';
 
 /** Top navigation bar. */
@@ -32,16 +33,24 @@ function Hero() {
   return (
     <header className={styles.hero}>
       <div className={styles.container}>
-        <h1 className={styles.heroTitle}>Skripsi kelar tepat waktu, tanpa drama.</h1>
-        <p className={styles.heroSubtitle}>
-          Editor yang ngerti PUEBI, terhubung ke perpustakaan, dan menemani kamu
-          sampai sidang. Semua dari browser, di mana pun kamu nulis.
-        </p>
-        <div className={styles.heroActions}>
-          <Button variant="primary" size="lg">Mulai bab pertama</Button>
-          <Button variant="secondary" size="lg">Lihat cara kerjanya</Button>
-        </div>
-        <div className={styles.heroMockup}>Product preview (export from Figma)</div>
+        <Reveal y={16} delay={0}>
+          <h1 className={styles.heroTitle}>Skripsi kelar tepat waktu, tanpa drama.</h1>
+        </Reveal>
+        <Reveal y={16} delay={0.08}>
+          <p className={styles.heroSubtitle}>
+            Editor yang ngerti PUEBI, terhubung ke perpustakaan, dan menemani kamu
+            sampai sidang. Semua dari browser, di mana pun kamu nulis.
+          </p>
+        </Reveal>
+        <Reveal y={16} delay={0.16}>
+          <div className={styles.heroActions}>
+            <Button variant="primary" size="lg">Mulai bab pertama</Button>
+            <Button variant="secondary" size="lg">Lihat cara kerjanya</Button>
+          </div>
+        </Reveal>
+        <Reveal y={64} delay={0.24}>
+          <div className={styles.heroMockup}>Product preview (export from Figma)</div>
+        </Reveal>
       </div>
     </header>
   );

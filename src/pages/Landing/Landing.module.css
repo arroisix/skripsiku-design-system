@@ -67,6 +67,8 @@
   font-weight: 500;
   color: var(--color-text-soft);
   text-decoration: none;
+  /* Framer's exact link-hover easing */
+  transition: color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
 }
 .navLink:hover {
   color: var(--color-text);

@@ -1,0 +1,25 @@
+/* Reveal — appear-on-scroll, replicating Framer's exact values:
+ * opacity 0.001 -> 1, translateY(N) -> 0, ease cubic-bezier(.44,0,.56,1), 0.7s. */
+
+.reveal {
+  opacity: 0.001;
+  transform: translateY(var(--reveal-y, 24px));
+  transition:
+    opacity var(--reveal-dur, 0.7s) cubic-bezier(0.44, 0, 0.56, 1) var(--reveal-delay, 0s),
+    transform var(--reveal-dur, 0.7s) cubic-bezier(0.44, 0, 0.56, 1) var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility: honour reduced-motion (skip the movement entirely). */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
