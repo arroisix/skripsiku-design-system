@@ -1,0 +1,53 @@
+/* StatCard — 1:1 from Figma DS (node 3:2611). */
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3); /* 12 */
+  padding: var(--space-5) var(--space-6); /* 20 / 24 */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  width: 220px;
+  box-sizing: border-box;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-tint);
+  color: var(--color-brand);
+}
+.badge svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.value {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.3px;
+  color: var(--color-text);
+}
+.label {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-mute);
+}

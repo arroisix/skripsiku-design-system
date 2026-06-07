@@ -1,0 +1,29 @@
+/* Toast — 1:1 from Figma DS (node 3:2625).
+ * Uses the fixed-dark canvas token so the pill stays dark in both themes
+ * (Figma used --text, which would invert in dark mode). */
+
+.toast {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2); /* 8 */
+  padding: var(--space-2) var(--space-4); /* 8 / 16 */
+  background: var(--color-canvas);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-2);
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/sm */
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-on-brand);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: var(--radius-full);
+}
+.info .dot { background: var(--color-info); }
+.success .dot { background: var(--color-success); }
+.warning .dot { background: var(--color-warning); }
+.danger .dot { background: var(--color-danger); }
