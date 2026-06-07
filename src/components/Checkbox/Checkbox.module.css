@@ -25,17 +25,25 @@
 }
 
 .box {
+  display: block;
+  position: relative;
   box-sizing: border-box;
   width: 20px;
   height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: var(--color-surface);
   border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   transition: background-color 0.15s ease, border-color 0.15s ease,
     box-shadow 0.15s ease;
+}
+
+/* Indicators are overlaid (absolute) so the hidden one never offsets the other. */
+.check,
+.dash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .check {
