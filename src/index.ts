@@ -39,6 +39,18 @@ export type { TextareaProps } from './components/Textarea';
 export { DashboardHeader } from './components/DashboardHeader';
 export type { DashboardHeaderProps } from './components/DashboardHeader';
 
+export { Badge } from './components/Badge';
+export type { BadgeProps, BadgeTone } from './components/Badge';
+
+export { Switch } from './components/Switch';
+export type { SwitchProps } from './components/Switch';
+
+export { Avatar } from './components/Avatar';
+export type { AvatarProps, AvatarSize } from './components/Avatar';
+
+export { ProgressBar } from './components/ProgressBar';
+export type { ProgressBarProps, ProgressTone } from './components/ProgressBar';
+
 export { Reveal } from './components/Reveal';
 export type { RevealProps } from './components/Reveal';
 

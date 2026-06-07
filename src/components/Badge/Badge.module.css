@@ -1,0 +1,36 @@
+/* Badge — 1:1 from Figma DS (node 3:967). */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2); /* 4 / 8 */
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/xs */
+  font-size: 11px;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.neutral {
+  background: var(--color-surface-2);
+  color: var(--color-text-soft);
+}
+.brand {
+  background: var(--color-brand-tint);
+  color: var(--color-brand);
+}
+/* state tones: tinted background + tone text (success/warning/danger have no
+ * dedicated tint token, so derived with color-mix). */
+.success {
+  background: color-mix(in srgb, var(--color-success) 14%, transparent);
+  color: var(--color-success);
+}
+.warning {
+  background: color-mix(in srgb, var(--color-warning) 16%, transparent);
+  color: var(--color-warning);
+}
+.danger {
+  background: color-mix(in srgb, var(--color-danger) 14%, transparent);
+  color: var(--color-danger);
+}
