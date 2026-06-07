@@ -54,5 +54,8 @@ export type { ProgressBarProps, ProgressTone } from './components/ProgressBar';
 export { Reveal } from './components/Reveal';
 export type { RevealProps } from './components/Reveal';
 
+/* ---- Icons (Ionicons) ---- */
+export * from './icons';
+
 /* ---- Design tokens (typed values) ---- */
 export * from './tokens/tokens';

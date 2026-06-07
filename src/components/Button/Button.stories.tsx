@@ -1,13 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect, fn, userEvent } from 'storybook/test';
 import { Button } from './Button';
+import { IconSparkles } from '../../icons';
 
-/** Sparkles icon (matches the Figma sample icon) — stories pass icons as ReactNode. */
-const SparklesIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3zM19 14l.9 2.1 2.1.9-2.1.9L19 20l-.9-2.1-2.1-.9 2.1-.9L19 14zM5 14l.9 2.1 2.1.9-2.1.9L5 20l-.9-2.1L2 17l2.1-.9L5 14z" />
-  </svg>
-);
+/** Stories pass icons as ReactNode — here the real Ionicons sparkles. */
+const SparklesIcon = () => <IconSparkles />;
 
 const meta = {
   component: Button,

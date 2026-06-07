@@ -5,7 +5,9 @@
   "description": "Skripsiku design system — React components + tokens, generated from Figma. Storybook is the living documentation.",
   "license": "MIT",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
@@ -16,7 +18,11 @@
     },
     "./styles": "./dist/skripsiku-ui.css"
   },
-  "sideEffects": ["**/*.css", "**/styles.ts", "**/styles.js"],
+  "sideEffects": [
+    "**/*.css",
+    "**/styles.ts",
+    "**/styles.js"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -31,12 +37,11 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@fontsource/open-runde": "^5.2.1"
+    "@fontsource/open-runde": "^5.2.1",
+    "ionicons": "^8.0.13"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.4.2",
     "@storybook/addon-docs": "^10.4.2",
@@ -54,6 +59,8 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
     "playwright": "^1.60.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "storybook": "^10.4.2",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",

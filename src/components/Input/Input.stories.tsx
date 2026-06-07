@@ -1,12 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect, userEvent } from 'storybook/test';
 import { Input } from './Input';
+import { IconMail } from '../../icons';
 
-const MailIcon = () => (
-  <svg viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M2 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4zm1.4.5L8 8.3l4.6-3.8H3.4zM13 5.9l-4.6 3.8a.6.6 0 0 1-.8 0L3 5.9V12h10V5.9z" />
-  </svg>
-);
+const MailIcon = () => <IconMail />;
 
 const meta = {
   component: Input,

@@ -7,6 +7,7 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from 'react';
+import { IconAlertCircle, IconCheckmarkCircle, IconChevronDown } from '../../icons';
 import styles from './Dropdown.module.css';
 
 export interface DropdownOption {
@@ -36,22 +37,6 @@ export interface DropdownProps {
   name?: string;
   className?: string;
 }
-
-const ChevronDownIcon = () => (
-  <svg viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M4.2 6.1a.7.7 0 0 1 1 0L8 8.9l2.8-2.8a.7.7 0 1 1 1 1L8.5 10.4a.7.7 0 0 1-1 0L4.2 7.1a.7.7 0 0 1 0-1z" />
-  </svg>
-);
-const CheckmarkCircleIcon = () => (
-  <svg viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm3.1 4.8-3.6 3.6a.7.7 0 0 1-1 0L4.9 8.2a.7.7 0 0 1 1-1l1.1 1.2 3.1-3.1a.7.7 0 1 1 1 1z" />
-  </svg>
-);
-const AlertIcon = () => (
-  <svg viewBox="0 0 16 16" aria-hidden="true">
-    <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM7.3 5a.7.7 0 0 1 1.4 0v3.2a.7.7 0 0 1-1.4 0V5zM8 10.3a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7z" />
-  </svg>
-);
 
 const cx = (...c: Array<string | false | undefined>) => c.filter(Boolean).join(' ');
 
@@ -176,11 +161,11 @@ export function Dropdown({
   };
 
   const triggerIcon = isError ? (
-    <AlertIcon />
+    <IconAlertCircle />
   ) : selected && !open ? (
-    <CheckmarkCircleIcon />
+    <IconCheckmarkCircle />
   ) : (
-    <ChevronDownIcon />
+    <IconChevronDown />
   );
 
   return (

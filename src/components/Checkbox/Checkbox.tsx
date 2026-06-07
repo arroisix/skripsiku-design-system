@@ -6,6 +6,7 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from 'react';
+import { IconCheckmark } from '../../icons';
 import styles from './Checkbox.module.css';
 
 export interface CheckboxProps
@@ -17,12 +18,6 @@ export interface CheckboxProps
 }
 
 const cx = (...c: Array<string | false | undefined>) => c.filter(Boolean).join(' ');
-
-const CheckIcon = () => (
-  <svg viewBox="0 0 14 14" aria-hidden="true">
-    <path d="M11.3 3.7a.8.8 0 0 1 0 1.1l-4.6 4.6a.8.8 0 0 1-1.1 0L3.2 7a.8.8 0 1 1 1.1-1.1l1.8 1.8 4-4a.8.8 0 0 1 1.2 0z" />
-  </svg>
-);
 
 /**
  * On/off control allowing several selections within a group. Supports an
@@ -44,7 +39,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         <input ref={innerRef} type="checkbox" className={styles.input} {...rest} />
         <span className={styles.box} aria-hidden="true">
           <span className={styles.check}>
-            <CheckIcon />
+            <IconCheckmark />
           </span>
           <span className={styles.dash} />
         </span>
