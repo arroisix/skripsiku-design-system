@@ -1,0 +1,16 @@
+/* PageDot — 1:1 from Figma DS (node 18:780). */
+
+.dot {
+  display: inline-block;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-strong);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+.dot[data-active='false'] {
+  width: 8px;
+}
+.dot[data-active='true'] {
+  width: 22px;
+  background: var(--color-brand);
+}

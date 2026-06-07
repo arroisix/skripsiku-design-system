@@ -51,6 +51,15 @@ export type { AvatarProps, AvatarSize } from './components/Avatar';
 export { ProgressBar } from './components/ProgressBar';
 export type { ProgressBarProps, ProgressTone } from './components/ProgressBar';
 
+export { Chip } from './components/Chip';
+export type { ChipProps } from './components/Chip';
+
+export { StatusDot } from './components/StatusDot';
+export type { StatusDotProps, DotStatus } from './components/StatusDot';
+
+export { PageDot } from './components/PageDot';
+export type { PageDotProps } from './components/PageDot';
+
 export { Reveal } from './components/Reveal';
 export type { RevealProps } from './components/Reveal';
 
