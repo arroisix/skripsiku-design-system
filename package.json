@@ -12,7 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@fontsource/open-runde": "^5.2.1",
+    "@fontsource/schibsted-grotesk": "^5.2.8",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
