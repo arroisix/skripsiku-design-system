@@ -1,0 +1,31 @@
+/* OtpCell — 1:1 from Figma DS (node 337:622). Presentational single-digit box.
+ * NOTE: the "success" state uses brand colours (not green) per Figma. */
+
+.cell {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 64px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.3px;
+  color: var(--color-text);
+}
+
+.cell[data-state='error'] {
+  background: color-mix(in srgb, var(--color-danger) 12%, transparent);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+.cell[data-state='success'] {
+  background: var(--color-brand-soft);
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+}

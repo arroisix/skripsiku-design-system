@@ -1,4 +1,4 @@
-/* AUTO-GENERATED from ionicons 8.0.13. Do not edit by hand. */
+/* AUTO-GENERATED from ionicons 8.0.13. Run scripts/gen-icons.mjs to update. */
 import { IconBase, type IconProps } from './IconBase';
 
 export const IconCheckmark = (p: IconProps) => (
@@ -124,6 +124,9 @@ export const IconStar = (p: IconProps) => (
 export const IconFilter = (p: IconProps) => (
   <IconBase {...p}><path d="M472 168H40a24 24 0 0 1 0-48h432a24 24 0 0 1 0 48M392 280H120a24 24 0 0 1 0-48h272a24 24 0 0 1 0 48M296 392h-80a24 24 0 0 1 0-48h80a24 24 0 0 1 0 48"/></IconBase>
 );
+export const IconFunnel = (p: IconProps) => (
+  <IconBase {...p}><path d="M296 464a23.9 23.9 0 0 1-7.55-1.23L208.3 436.1a23.92 23.92 0 0 1-16.3-22.78V294.11a.4.4 0 0 0-.09-.13L23.26 97.54A30 30 0 0 1 46.05 48H466a30 30 0 0 1 22.79 49.54L320.09 294a1 1 0 0 0-.09.13V440a23.93 23.93 0 0 1-24 24"/></IconBase>
+);
 export const IconCalendar = (p: IconProps) => (
   <IconBase {...p}><path d="M480 128a64 64 0 0 0-64-64h-16V48.45c0-8.61-6.62-16-15.23-16.43A16 16 0 0 0 368 48v16H144V48.45c0-8.61-6.62-16-15.23-16.43A16 16 0 0 0 112 48v16H96a64 64 0 0 0-64 64v12a4 4 0 0 0 4 4h440a4 4 0 0 0 4-4ZM32 416a64 64 0 0 0 64 64h320a64 64 0 0 0 64-64V179a3 3 0 0 0-3-3H35a3 3 0 0 0-3 3Zm344-208a24 24 0 1 1-24 24 24 24 0 0 1 24-24m0 80a24 24 0 1 1-24 24 24 24 0 0 1 24-24m-80-80a24 24 0 1 1-24 24 24 24 0 0 1 24-24m0 80a24 24 0 1 1-24 24 24 24 0 0 1 24-24m0 80a24 24 0 1 1-24 24 24 24 0 0 1 24-24m-80-80a24 24 0 1 1-24 24 24 24 0 0 1 24-24m0 80a24 24 0 1 1-24 24 24 24 0 0 1 24-24m-80-80a24 24 0 1 1-24 24 24 24 0 0 1 24-24m0 80a24 24 0 1 1-24 24 24 24 0 0 1 24-24"/></IconBase>
 );
@@ -135,4 +138,19 @@ export const IconLockClosed = (p: IconProps) => (
 );
 export const IconWarning = (p: IconProps) => (
   <IconBase {...p}><path d="M449.07 399.08 278.64 82.58c-12.08-22.44-44.26-22.44-56.35 0L51.87 399.08A32 32 0 0 0 80 446.25h340.89a32 32 0 0 0 28.18-47.17m-198.6-1.83a20 20 0 1 1 20-20 20 20 0 0 1-20 20m21.72-201.15-5.74 122a16 16 0 0 1-32 0l-5.74-121.95a21.73 21.73 0 0 1 21.5-22.69h.21a21.74 21.74 0 0 1 21.73 22.7Z"/></IconBase>
+);
+export const IconSwapVertical = (p: IconProps) => (
+  <IconBase {...p}><path d="M464 208 352 96 240 208M352 113.13V416M48 304l112 112 112-112M160 398V96" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32px"/></IconBase>
+);
+export const IconEllipsisHorizontal = (p: IconProps) => (
+  <IconBase {...p}><circle cx="256" cy="256" r="48"/><circle cx="416" cy="256" r="48"/><circle cx="96" cy="256" r="48"/></IconBase>
+);
+export const IconDocumentText = (p: IconProps) => (
+  <IconBase {...p}><path d="M428 224H288a48 48 0 0 1-48-48V36a4 4 0 0 0-4-4h-92a64 64 0 0 0-64 64v320a64 64 0 0 0 64 64h224a64 64 0 0 0 64-64V228a4 4 0 0 0-4-4m-92 160H176a16 16 0 0 1 0-32h160a16 16 0 0 1 0 32m0-80H176a16 16 0 0 1 0-32h160a16 16 0 0 1 0 32"/><path d="M419.22 188.59 275.41 44.78a2 2 0 0 0-3.41 1.41V176a16 16 0 0 0 16 16h129.81a2 2 0 0 0 1.41-3.41"/></IconBase>
+);
+export const IconOpen = (p: IconProps) => (
+  <IconBase {...p}><path d="M224 304a16 16 0 0 1-11.31-27.31l157.94-157.94A55.7 55.7 0 0 0 344 112H104a56.06 56.06 0 0 0-56 56v240a56.06 56.06 0 0 0 56 56h240a56.06 56.06 0 0 0 56-56V168a55.7 55.7 0 0 0-6.75-26.63L235.31 299.31A15.92 15.92 0 0 1 224 304"/><path d="M448 48H336a16 16 0 0 0 0 32h73.37l-38.74 38.75a56.35 56.35 0 0 1 22.62 22.62L432 102.63V176a16 16 0 0 0 32 0V64a16 16 0 0 0-16-16"/></IconBase>
+);
+export const IconList = (p: IconProps) => (
+  <IconBase {...p}><path d="M160 144h288M160 256h288M160 368h288" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48px"/><circle cx="80" cy="144" r="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32px"/><circle cx="80" cy="256" r="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32px"/><circle cx="80" cy="368" r="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32px"/></IconBase>
 );

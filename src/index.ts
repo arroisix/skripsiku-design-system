@@ -60,6 +60,15 @@ export type { StatusDotProps, DotStatus } from './components/StatusDot';
 export { PageDot } from './components/PageDot';
 export type { PageDotProps } from './components/PageDot';
 
+export { Toggle } from './components/Toggle';
+export type { ToggleProps } from './components/Toggle';
+
+export { OtpCell } from './components/OtpCell';
+export type { OtpCellProps, OtpCellState } from './components/OtpCell';
+
+export { Select } from './components/Select';
+export type { SelectProps } from './components/Select';
+
 export { Reveal } from './components/Reveal';
 export type { RevealProps } from './components/Reveal';
 
