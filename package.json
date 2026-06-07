@@ -12,7 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@fontsource/schibsted-grotesk": "^5.2.8",
+    "@fontsource/nunito": "^5.2.7",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
