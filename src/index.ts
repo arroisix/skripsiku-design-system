@@ -105,6 +105,18 @@ export type { MetricCardProps, MetricBadgeTone } from './components/MetricCard';
 export { StatCard } from './components/StatCard';
 export type { StatCardProps } from './components/StatCard';
 
+export { Modal } from './components/Modal';
+export type { ModalProps, ModalTone } from './components/Modal';
+
+export { MenuItem } from './components/MenuItem';
+export type { MenuItemProps, MenuItemTone } from './components/MenuItem';
+
+export { ListItem } from './components/ListItem';
+export type { ListItemProps } from './components/ListItem';
+
+export { ToggleGroup } from './components/ToggleGroup';
+export type { ToggleGroupProps, ToggleGroupItem } from './components/ToggleGroup';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 

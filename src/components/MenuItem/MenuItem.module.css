@@ -1,0 +1,64 @@
+/* MenuItem — 1:1 from Figma DS (node 64:920). */
+
+.item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2); /* 8 */
+  width: 100%;
+  min-width: 180px;
+  padding: var(--space-2); /* 8 */
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/sm */
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-text);
+  transition: background-color 0.12s ease;
+}
+.item:hover:not(:disabled),
+.item:focus-visible {
+  outline: none;
+  background: var(--color-surface-2);
+}
+.item:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.danger {
+  color: var(--color-danger);
+}
+
+.icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.label {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kbd {
+  flex: none;
+  padding: 0 var(--space-1);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-xs);
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--color-text-mute);
+}
