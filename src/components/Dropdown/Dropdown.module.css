@@ -1,0 +1,171 @@
+/* Dropdown — 1:1 from Figma DS (node 3:2641).
+ * A labelled, validated select. Figma states map to real interaction:
+ * hover/focus/open/disabled, plus error + selected flags. */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1); /* 4px label · control · message */
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/sm */
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-text);
+  margin-bottom: 2px; /* Figma inner label↔field gap is 6px (4 root + 2) */
+}
+
+.control {
+  position: relative;
+  width: 100%;
+}
+
+/* ---- Trigger ---- */
+.trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2); /* 8px */
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-3) 0 14px; /* pl 14 / pr 12 per Figma */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px; /* Figma literal — note: Input uses radius-md (8px) */
+
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.trigger:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+}
+.trigger[data-open='true'],
+.trigger:focus-visible {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 18%, transparent);
+}
+.trigger[data-error='true'] {
+  border-color: var(--color-danger);
+}
+.trigger[data-error='true']:focus-visible,
+.trigger[data-error='true'][data-open='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-danger) 18%, transparent);
+}
+.trigger:disabled {
+  background: var(--color-surface-2);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.value {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.value[data-placeholder='true'] {
+  color: var(--color-text-mute);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-mute);
+  transition: transform 0.15s ease;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+}
+.icon[data-variant='error'] {
+  color: var(--color-danger);
+}
+.chevron[data-open='true'] {
+  transform: rotate(180deg);
+}
+
+/* ---- Menu ---- */
+.menu {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  right: 0;
+  z-index: 50;
+  margin: 0;
+  padding: var(--space-1) 0;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-2);
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.option[data-active='true'],
+.option:hover {
+  background: var(--color-surface-2);
+}
+.option[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.optTitle {
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/md */
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-text);
+}
+.optDesc {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  color: var(--color-text-mute);
+}
+
+/* ---- Helper / error message ---- */
+.message {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+}
+.helper {
+  color: var(--color-text-mute);
+}
+.error {
+  color: var(--color-danger);
+}
