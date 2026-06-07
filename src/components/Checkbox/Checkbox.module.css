@@ -49,6 +49,10 @@
   height: 100%;
   display: block;
 }
+/* Bolder checkmark — the Ionicons stroke (32/512) reads too thin at 14px. */
+.check svg path {
+  stroke-width: 52px;
+}
 .dash {
   width: 10px;
   height: 2px;
