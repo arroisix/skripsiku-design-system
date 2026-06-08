@@ -124,11 +124,13 @@ export function Dropdown({
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        open ? step(1) : openMenu();
+        if (open) step(1);
+        else openMenu();
         break;
       case 'ArrowUp':
         e.preventDefault();
-        open ? step(-1) : openMenu();
+        if (open) step(-1);
+        else openMenu();
         break;
       case 'Home':
         if (open) {

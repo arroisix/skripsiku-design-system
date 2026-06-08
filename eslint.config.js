@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'storybook-static', 'src/icons/generated.tsx']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -17,6 +17,13 @@ export default defineConfig([
     ],
     languageOptions: {
       globals: globals.browser,
+    },
+  },
+  {
+    // Stories & Storybook config call hooks inside render/decorators by design.
+    files: ['**/*.stories.tsx', '.storybook/**/*.{ts,tsx}'],
+    rules: {
+      'react-hooks/rules-of-hooks': 'off',
     },
   },
 ])

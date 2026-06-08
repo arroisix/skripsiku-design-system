@@ -1,5 +1,4 @@
 import {
-  useEffect,
   useRef,
   useState,
   type HTMLAttributes,
@@ -63,7 +62,13 @@ export function Ruler({ state = 'default', onChange, className, ...rest }: Ruler
   const drag = useRef<Marker | null>(null);
   const [pos, setPos] = useState(() => preset(state));
 
-  useEffect(() => setPos(preset(state)), [state]);
+  // Reset marker positions when the `state` preset changes (during render — the
+  // React-recommended alternative to a setState-in-effect).
+  const [prevState, setPrevState] = useState(state);
+  if (state !== prevState) {
+    setPrevState(state);
+    setPos(preset(state));
+  }
 
   const toCm = (p: typeof pos): RulerIndents => ({
     firstLine: round1((p.firstLine - ZONE_START) / CM),
@@ -71,14 +76,13 @@ export function Ruler({ state = 'default', onChange, className, ...rest }: Ruler
     right: round1((ZONE_END - p.right) / CM),
   });
 
-  const apply = (which: Marker, x: number) =>
-    setPos((prev) => {
-      const next = { ...prev };
-      if (which === 'right') next.right = clamp(x, Math.max(prev.firstLine, prev.left), MAX);
-      else next[which] = clamp(x, MIN, prev.right);
-      onChange?.(toCm(next));
-      return next;
-    });
+  const apply = (which: Marker, x: number) => {
+    const next = { ...pos };
+    if (which === 'right') next.right = clamp(x, Math.max(pos.firstLine, pos.left), MAX);
+    else next[which] = clamp(x, MIN, pos.right);
+    setPos(next);
+    onChange?.(toCm(next)); // fire in the event handler, never inside a render
+  };
 
   const xFromClient = (clientX: number) => {
     const rect = rulerRef.current!.getBoundingClientRect();
