@@ -1,10 +1,30 @@
 {
   "name": "@skripsiku/ui",
-  "private": true,
   "version": "0.1.0",
   "description": "Skripsiku design system — React components + tokens, generated from Figma. Storybook is the living documentation.",
   "license": "MIT",
+  "author": "arroisix",
   "type": "module",
+  "keywords": [
+    "react",
+    "design-system",
+    "component-library",
+    "ui",
+    "storybook",
+    "figma",
+    "design-tokens"
+  ],
+  "homepage": "https://arroisix.github.io/skripsiku-design-system/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arroisix/skripsiku-design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arroisix/skripsiku-design-system/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
@@ -27,6 +47,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:lib": "vite build --config vite.lib.config.ts",
+    "prepublishOnly": "npm run build:lib",
     "typecheck": "tsc -b",
     "test": "vitest --project storybook run",
     "lint": "eslint .",

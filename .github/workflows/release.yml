@@ -1,0 +1,54 @@
+# Publishes @skripsiku/ui to npm when a GitHub Release is published.
+#
+# DORMANT until you add an automation token:
+#   1. Create an npm account that owns the @skripsiku scope.
+#   2. npm → Access Tokens → Generate (Automation type).
+#   3. Repo → Settings → Secrets and variables → Actions → add NPM_TOKEN.
+# Without that secret the job fails fast with a clear message (nothing is published).
+#
+# Alternative registry (GitHub Packages, no extra token) would instead need the
+# package renamed to the owner scope (@arroisix/...) and a registry-url of
+# https://npm.pkg.github.com — left out here since the registry isn't finalized.
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # enables npm provenance on the public repo
+
+jobs:
+  publish-npm:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify NPM_TOKEN is configured
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "::error::NPM_TOKEN secret is not set — add it in Settings → Secrets → Actions to enable publishing."
+            exit 1
+          fi
+
+      # prepublishOnly (in package.json) rebuilds dist before this runs.
+      - name: Publish
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
