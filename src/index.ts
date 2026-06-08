@@ -168,6 +168,12 @@ export type { LintPopoverProps, LintType } from './components/LintPopover';
 export { AiAcceptBar } from './components/AiAcceptBar';
 export type { AiAcceptBarProps } from './components/AiAcceptBar';
 
+export { IconToggle } from './components/IconToggle';
+export type { IconToggleProps } from './components/IconToggle';
+
+export { PuebiPanel } from './components/PuebiPanel';
+export type { PuebiPanelProps, PuebiIssue, PuebiTone } from './components/PuebiPanel';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 
