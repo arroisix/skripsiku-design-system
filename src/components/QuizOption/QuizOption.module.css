@@ -1,0 +1,79 @@
+/* QuizOption — 1:1 from Figma DS (node 242:1313). */
+
+.option {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 640px;
+  max-width: 100%;
+  padding: var(--space-3) var(--space-4); /* 12 / 16 */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+.option:hover:not([data-selected='true']) {
+  border-color: var(--color-border-strong);
+}
+.option[data-selected='true'] {
+  background: var(--color-brand-tint);
+  border: 1.5px solid var(--color-brand);
+}
+.option:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand) 18%, transparent);
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1 0 0;
+  min-width: 0;
+}
+.box {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-strong);
+  color: var(--color-on-brand);
+}
+.checkbox { border-radius: var(--radius-sm); }
+.radio { border-radius: var(--radius-full); }
+.option[data-selected='true'] .box {
+  background: var(--color-brand);
+  border: 1px solid var(--color-brand);
+}
+
+.check {
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+}
+.option[data-selected='true'] .checkbox .check { opacity: 1; }
+.check svg { width: 100%; height: 100%; display: block; }
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-on-brand);
+  opacity: 0;
+}
+.option[data-selected='true'] .radio .dot { opacity: 1; }
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/md */
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--color-text);
+}

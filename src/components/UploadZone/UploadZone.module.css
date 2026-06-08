@@ -1,0 +1,130 @@
+/* UploadZone — 1:1 from Figma DS (node 19:824). */
+
+.zone {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 680px;
+  max-width: 100%;
+  background: var(--color-surface);
+}
+
+/* idle = dashed drop area */
+.idle {
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-10) var(--space-6); /* 40 / 24 */
+  border: 1.5px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: center;
+}
+.idle:hover,
+.idle:focus-visible {
+  outline: none;
+  border-color: var(--color-brand);
+}
+
+/* filled = solid card (uploading / success / error) */
+.filled {
+  align-items: flex-start;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.error {
+  border-color: var(--color-danger);
+}
+
+.idleBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+}
+.idleBadge svg { width: 16px; height: 16px; display: block; }
+
+.title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-text);
+}
+.hint {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-text-mute);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+.rowBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex: none;
+  border-radius: var(--radius-lg);
+  background: var(--color-brand-soft);
+  color: var(--color-brand);
+}
+.rowBadgeError {
+  background: color-mix(in srgb, var(--color-danger) 12%, transparent);
+  color: var(--color-danger);
+}
+.rowBadge svg { width: 24px; height: 24px; display: block; }
+
+.rowBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1 0 0;
+  min-width: 0;
+}
+.filename {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.meta {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-text-soft);
+}
+.status {
+  flex: none;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}
+.statusSuccess { color: var(--color-success); }
+.statusError { color: var(--color-danger); }
+
+.caption {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-text-soft);
+}

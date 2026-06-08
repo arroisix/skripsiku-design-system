@@ -147,6 +147,15 @@ export type { RefItemProps } from './components/RefItem';
 export { TodoItem } from './components/TodoItem';
 export type { TodoItemProps } from './components/TodoItem';
 
+export { QuizOption } from './components/QuizOption';
+export type { QuizOptionProps, QuizControl } from './components/QuizOption';
+
+export { PathOption } from './components/PathOption';
+export type { PathOptionProps } from './components/PathOption';
+
+export { UploadZone } from './components/UploadZone';
+export type { UploadZoneProps, UploadState } from './components/UploadZone';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 
