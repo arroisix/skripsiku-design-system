@@ -35,6 +35,19 @@ export const ContextMenu: Story = {
   ),
 };
 
+/** "Tampilan" (view) menu with checkable rows toggling display options. */
+export const ViewMenu: Story = {
+  render: () => (
+    <Menu style={{ width: 232 }}>
+      <MenuLabel>TAMPILAN</MenuLabel>
+      <MenuItem checked>Penggaris</MenuItem>
+      <MenuItem checked={false}>Garis kisi</MenuItem>
+      <MenuItem checked={false}>Panel navigasi</MenuItem>
+      <MenuItem checked={false}>Mode fokus</MenuItem>
+    </Menu>
+  ),
+};
+
 /** Overflow ("…") menu with labelled sections of rich rows. */
 export const MoreMenu: Story = {
   render: () => (

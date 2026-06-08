@@ -33,13 +33,20 @@
   color: var(--color-danger);
 }
 
-.icon {
+.icon,
+.check {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 16px;
   height: 16px;
   flex: none;
 }
-.icon svg {
+.check {
+  color: var(--color-brand);
+}
+.icon svg,
+.check svg {
   width: 100%;
   height: 100%;
   display: block;

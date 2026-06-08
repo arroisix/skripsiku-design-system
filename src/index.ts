@@ -174,6 +174,9 @@ export type { IconToggleProps } from './components/IconToggle';
 export { PuebiPanel } from './components/PuebiPanel';
 export type { PuebiPanelProps, PuebiIssue, PuebiTone } from './components/PuebiPanel';
 
+export { WebTopbar } from './components/WebTopbar';
+export type { WebTopbarProps } from './components/WebTopbar';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 
