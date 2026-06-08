@@ -1,0 +1,45 @@
+/* RailItem — 1:1 from Figma DS (node 226:1141). */
+
+.item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text-soft);
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+.item:hover:not([data-active='true']),
+.item:focus-visible {
+  outline: none;
+  background: var(--color-surface-2);
+}
+.item[data-active='true'] {
+  background: var(--color-brand-tint);
+  color: var(--color-brand);
+}
+
+.icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.label {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+}

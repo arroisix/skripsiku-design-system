@@ -117,6 +117,18 @@ export type { ListItemProps } from './components/ListItem';
 export { ToggleGroup } from './components/ToggleGroup';
 export type { ToggleGroupProps, ToggleGroupItem } from './components/ToggleGroup';
 
+export { ChatBubble } from './components/ChatBubble';
+export type { ChatBubbleProps, ChatRole } from './components/ChatBubble';
+
+export { SideNavItem } from './components/SideNavItem';
+export type { SideNavItemProps } from './components/SideNavItem';
+
+export { RailItem } from './components/RailItem';
+export type { RailItemProps } from './components/RailItem';
+
+export { MenuItemRich } from './components/MenuItemRich';
+export type { MenuItemRichProps, MenuItemRichTone } from './components/MenuItemRich';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 
