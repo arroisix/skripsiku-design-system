@@ -1,0 +1,48 @@
+# Visual review with Chromatic — publishes Storybook and surfaces a visual diff
+# on every push/PR, so design changes can be reviewed & approved in the browser.
+#
+# DORMANT until you connect Chromatic:
+#   1. Sign in at https://www.chromatic.com with your GitHub account.
+#   2. Create a project linked to arroisix/skripsiku-design-system.
+#   3. Copy the project token.
+#   4. Repo → Settings → Secrets and variables → Actions → add
+#      CHROMATIC_PROJECT_TOKEN.
+# Without that secret the Chromatic step is skipped (the job still passes).
+name: Chromatic
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  chromatic:
+    name: Visual review
+    runs-on: ubuntu-latest
+    env:
+      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # Chromatic needs full git history for baselines
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Chromatic
+        if: ${{ env.CHROMATIC_PROJECT_TOKEN != '' }}
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ env.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true # TurboSnap: snapshot only changed stories
+          exitZeroOnChanges: true # don't fail CI on visual changes — review in Chromatic UI
