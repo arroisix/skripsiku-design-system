@@ -1,0 +1,30 @@
+/* Menu — popover container for menu rows. From Figma DS Context/More menu
+ * (nodes 83:967, 108:885). Compose with MenuItem / MenuItemRich. */
+
+.menu {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  padding: var(--space-1); /* 4 */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+}
+
+.label {
+  padding: var(--space-2) var(--space-2) var(--space-1); /* 8 / 8 / 4 */
+  font-family: var(--font-sans);
+  font-weight: 500; /* label/xs */
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--color-text-mute);
+}
+
+.separator {
+  height: 1px;
+  margin: var(--space-1) 0;
+  border: none;
+  background: var(--color-border);
+}

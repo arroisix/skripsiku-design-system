@@ -129,6 +129,9 @@ export type { RailItemProps } from './components/RailItem';
 export { MenuItemRich } from './components/MenuItemRich';
 export type { MenuItemRichProps, MenuItemRichTone } from './components/MenuItemRich';
 
+export { Menu, MenuLabel, MenuSeparator } from './components/Menu';
+export type { MenuProps } from './components/Menu';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 
