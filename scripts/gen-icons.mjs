@@ -13,6 +13,7 @@ const names = [
   'ellipse', 'settings', 'trash', 'pencil', 'copy', 'share-social', 'heart',
   'star', 'filter', 'funnel', 'calendar', 'person', 'lock-closed', 'warning',
   'swap-vertical', 'ellipsis-horizontal', 'document-text', 'open', 'list',
+  'bookmark', 'bookmark-outline',
 ];
 const pascal = (s) => s.replace(/(^|-)([a-z])/g, (_, __, c) => c.toUpperCase());
 const attrMap = {

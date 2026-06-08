@@ -1,0 +1,55 @@
+/* PrepCard — 1:1 from Figma DS (node 3:2604). */
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 446px;
+  max-width: 100%;
+  padding: var(--space-4); /* 16 */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.12s ease;
+}
+.card:hover,
+.card:focus-visible {
+  outline: none;
+  border-color: var(--color-border-strong);
+}
+
+.thumb {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: var(--radius-md);
+  background: var(--thumb, var(--color-brand-tint));
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1 0 0;
+  min-width: 0;
+}
+.title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--color-text);
+}
+.subtitle {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-mute);
+}
+.trailing {
+  flex: none;
+}

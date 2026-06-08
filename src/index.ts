@@ -132,6 +132,21 @@ export type { MenuItemRichProps, MenuItemRichTone } from './components/MenuItemR
 export { Menu, MenuLabel, MenuSeparator } from './components/Menu';
 export type { MenuProps } from './components/Menu';
 
+export { DeckCard } from './components/DeckCard';
+export type { DeckCardProps } from './components/DeckCard';
+
+export { PrepCard } from './components/PrepCard';
+export type { PrepCardProps } from './components/PrepCard';
+
+export { IdeaCard } from './components/IdeaCard';
+export type { IdeaCardProps } from './components/IdeaCard';
+
+export { RefItem } from './components/RefItem';
+export type { RefItemProps } from './components/RefItem';
+
+export { TodoItem } from './components/TodoItem';
+export type { TodoItemProps } from './components/TodoItem';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 
