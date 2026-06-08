@@ -156,6 +156,18 @@ export type { PathOptionProps } from './components/PathOption';
 export { UploadZone } from './components/UploadZone';
 export type { UploadZoneProps, UploadState } from './components/UploadZone';
 
+export { PaneIntro } from './components/PaneIntro';
+export type { PaneIntroProps } from './components/PaneIntro';
+
+export { PagePreview } from './components/PagePreview';
+export type { PagePreviewProps, PageStatus, PageStat } from './components/PagePreview';
+
+export { LintPopover } from './components/LintPopover';
+export type { LintPopoverProps, LintType } from './components/LintPopover';
+
+export { AiAcceptBar } from './components/AiAcceptBar';
+export type { AiAcceptBarProps } from './components/AiAcceptBar';
+
 /* ---- Icons (Ionicons) ---- */
 export * from './icons';
 

@@ -1,0 +1,84 @@
+/* LintPopover — 1:1 from Figma DS (node 90:1316). */
+
+.popover {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  max-width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border-strong);
+}
+.badge {
+  display: inline-flex;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--color-on-brand);
+}
+.typo .badge,
+.plag .badge { background: var(--color-danger); }
+.eyd .badge { background: var(--color-warning); }
+.spacer { flex: 1 0 0; }
+.dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  color: var(--color-text-mute);
+}
+.dismiss:hover { background: var(--color-surface-2); }
+.dismiss svg { width: 16px; height: 16px; display: block; }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+.issue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+.wrong { color: var(--color-text-mute); }
+.arrow { color: var(--color-text-mute); }
+.correct { color: var(--color-success); }
+.explain {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--color-text-soft);
+}
+.actions {
+  display: flex;
+  gap: var(--space-1);
+}
